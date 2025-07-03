@@ -1,0 +1,9 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Only for local usage, will never be in production
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+  }
+}
